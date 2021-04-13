@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import scrollDown from "../../img/scrollDown.png";
 import logo from "../../img/logo.jpg";
-import logo_mobile from "../../img/logo_mobile.jpg";
 
 import About from "./About";
 import Portfolio from "./Portfolio";
@@ -77,7 +76,6 @@ observer.observe(document.querySelector("#body"), { subtree: false, childList: t
           <div className={collapsed2 ? "" : "scroll-hidden"}>
             <img 
               src={logo} 
-              srcSet={`${logo} 1024w, ${logo_mobile} 500w`}
               alt="logo" 
               className="logo" 
             />
