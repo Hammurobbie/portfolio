@@ -22,8 +22,12 @@ const Img = styled.img`
   border: #e7e9d1 2px dotted;
   height: 20%;
   width: 20%;
+  max-height: 180px;
+  max-width: 180px;
   margin-bottom: 20px;
+  box-shadow: 0px 0px 20px 0px rgba(135, 139, 123, .5);
   @media (max-width: 500px) {
+    box-shadow: 0px 0px 20px 0px rgba(135, 139, 123, .25);
     border: #e7e9d1 1px dotted;
     height: 35%;
     width: 35%;
