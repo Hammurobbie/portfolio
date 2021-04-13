@@ -93,15 +93,10 @@ a:hover {
 }
 
 #home {
-  height: 100vh;
+  min-height: 100vh;
   width: auto;
   padding: 3% 2% 0 2%;
-}
-
-#home-about {
-  height: auto;
-  width: auto;
-  padding: 3% 2% 0 2%;
+  transition: 0.2s ease-in-out;
 }
 
 *:focus {
@@ -187,6 +182,7 @@ a:hover {
 .scrollto--arrow {
   padding: 10px;
 }
+
 .scrollto--arrow img {
   width: 25%;
   animation: arrowbounce 1s alternate infinite;
@@ -250,15 +246,9 @@ a:hover {
   }
 }
 
-@media (min-aspect-ratio: 1920/1080) {
-  #home {
-    height: auto;
-  }
-}
-
 /* tablet */
 
-@media (max-width: 980px) {
+@media (max-width: 800px) {
   .logo {
     width: 100%;
     margin-bottom: 15%;
@@ -329,9 +319,27 @@ a:hover {
     font-size: 1.75rem;
   }
 
+  .row p {
+    font-size: 2rem;
+  }
+
   .scrollto {
     margin-top: 3vh;
     padding: 65vh 0px px 0px;
+  }
+
+  .scrollto-text {
+    font-size: 2rem;
+  }
+
+  .scrollto-text:hover {
+    color: #e04343;
+    transition: 0.2s ease-in-out;
+  }
+
+  .scrollto--arrow img {
+    width: 35%;
+    margin-top: 10px;
   }
 
   .portfolio-section {

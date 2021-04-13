@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import scrollDown from "../../img/scrollDown.png";
 import logo from "../../img/logo.jpg";
+import logo_mobile from "../../img/logo_mobile.jpg";
 
 import About from "./About";
 import Portfolio from "./Portfolio";
@@ -25,15 +26,6 @@ const NavbarToggler = styled.button`
     box-shadow: 0px 0px 4px rgba(250, 235, 215,.5);
     transition: 0.2s ease-in-out;
   }
-  @media (max-width: 500px) {
-    box-shadow: 0px 0px 4px rgba(250, 235, 215,.1);
-    padding: 6px 10px 5px 10px;
-    min-width: 100px;
-    h2 {
-      padding: 0;
-      margin: 0;
-    }
-  }
   @media (max-width: 980px) {
     padding: 6px 10px 5px 10px;
     min-width: 100px;
@@ -41,6 +33,16 @@ const NavbarToggler = styled.button`
       padding: 0;
       margin: 0;
     }
+  @media (max-width: 500px) {
+    box-shadow: 0px 0px 4px rgba(250, 235, 215,.1);
+    padding: 5px 10px 5px 10px;
+    min-width: 100px;
+    h2 {
+      padding: 0;
+      margin: 0;
+      font-size: 1.7rem;
+    }
+  }
 `;
 
 const HomePage = () => {
@@ -73,7 +75,12 @@ observer.observe(document.querySelector("#body"), { subtree: false, childList: t
         <About collapsed2={collapsed2} setCollapsed2={setCollapsed2} />
         <div className="row">
           <div className={collapsed2 ? "" : "scroll-hidden"}>
-            <img src={logo} alt="logo" className="logo" />
+            <img 
+              src={logo} 
+              srcSet={`${logo} 1024w, ${logo_mobile} 500w`}
+              alt="logo" 
+              className="logo" 
+            />
             <p>a full-stack web developer</p>
             <a
               href="#portfolio-section"
