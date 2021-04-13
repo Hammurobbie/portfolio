@@ -320,16 +320,16 @@ a:hover {
   }
 
   .row p {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .scrollto {
     margin-top: 3vh;
-    padding: 65vh 0px px 0px;
+    padding: 5vh 0px 0px 0px;
   }
 
   .scrollto-text {
-    font-size: 2rem;
+    font-size: 2.3rem !important;
   }
 
   .scrollto-text:hover {
