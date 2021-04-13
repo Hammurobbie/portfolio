@@ -26,7 +26,7 @@ const NavbarToggler = styled.button`
     transition: 0.2s ease-in-out;
   }
   @media (max-width: 500px) {
-    margin: 10px 10px 0 0;
+    box-shadow: 0px 0px 4px rgba(250, 235, 215,.1);
     padding: 6px 10px 5px 10px;
     min-width: 100px;
     h2 {
@@ -35,7 +35,6 @@ const NavbarToggler = styled.button`
     }
   }
   @media (max-width: 980px) {
-    margin: 10px 10px 0 10px;
     padding: 6px 10px 5px 10px;
     min-width: 100px;
     h2 {
