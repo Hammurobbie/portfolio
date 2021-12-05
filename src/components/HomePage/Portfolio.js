@@ -81,7 +81,7 @@ const MobContr = styled.div`
 const LocInd = styled.div`
   opacity: 0.7;
   background: #e7e9d1;
-  border-radius: 25%;
+  border-radius: 25px;
   height: 3px;
   width: 10px;
   box-shadow: 0px -3px 20px 0px rgba(135, 139, 123, .5);
