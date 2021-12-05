@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { FaAngleLeft, FaAngleRight} from 'react-icons/fa';
 
-import nbenviro from "../../img/nbenviro.png";
 import missionControl from "../../img/missionControl.png";
 import bhm from "../../img/bhm.png";
 import hue from "../../img/hue.png";
 import github from "../../img/github.png";
 import github_hover from "../../img/github_hover.png";
+import mango from "../../img/mango.png";
+import abu from "../../img/abu.png";
+import cancun from "../../img/cancun.png";
 
 const Img = styled.img`
   width: 20px;
@@ -17,11 +20,110 @@ const Img = styled.img`
   }
 `;
 
+const Carousel = styled.div`
+  button {
+    background: none;
+    border: none;
+    transition: all 0.2s ease-in-out;
+    height: 50px
+
+    svg {
+      height: 100%;
+      color: #e7e9d1;
+      transition: all 0.2s ease-in-out;
+    }
+
+    svg:hover {
+      color: #e04343;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+`;
+
+const DeskContr = styled.button`
+  opacity: 0.7;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+
+const MobContr = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+
+  button {
+    opacity: 0.7;
+    background: none;
+    border: none;
+    transition: all 0.2s ease-in-out;
+    height: 50px
+
+    svg {
+      height: 100%;
+      color: #e7e9d1;
+      transition: all 0.2s ease-in-out;
+    }
+
+    svg:hover {
+      color: #e04343;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  @media (min-width: 500px) {
+    display: none;
+  }
+`;
+
+const LocInd = styled.div`
+  opacity: 0.7;
+  background: #e7e9d1;
+  border-radius: 25%;
+  height: 3px;
+  width: 10px;
+  box-shadow: 0px -3px 20px 0px rgba(135, 139, 123, .5);
+`;
+
+const carItems = [
+  {
+    id: 0,
+    copy: "Conrad Abu Dhabi - each component was designed to be functionally and stylistically flexible for a more personailzed experience",
+    url: "https://www.hilton.com/en/hotels/auhetci-conrad-abu-dhabi-etihad-towers/",
+    img: abu
+  },
+  {
+    id: 1,
+    copy: "LXR Mango House - one of many resort hotel sites I built or worked on components for in a shared monorepo",
+    url: "https://www.hilton.com/en/hotels/sezitol-mango-house-seychelles/",
+    img: mango
+  },
+  {
+    id: 2,
+    copy: "Hilton Cancun - all components I built or worked on are fully accessible and are used in more than 20 high-end resort sites",
+    url: "https://hiltoncancun.hilton.com/en",
+    img: cancun
+  },
+]
+
 const Portfolio = () => {
   const [hover, setHover] = useState(false);
   const [hover2, setHover2] = useState(false);
   const [hover3, setHover3] = useState(false);
   const [hover4, setHover4] = useState(false);
+  const [carInd, setCarInd] = useState(0);
+
+  const handleMove = (dir) => {
+    if(dir === "next" && carInd >= carItems.length - 1) {
+      setCarInd(0);
+    } else if(dir === "next") {
+      setCarInd(carInd + 1);
+    } else if(dir === "prev" && carInd > 0) {
+      setCarInd(carInd - 1);
+    } else setCarInd(carItems.length - 1)
+  };
 
   return (
     <div id="portfolio-section" className="portfolio-section">
@@ -52,6 +154,57 @@ const Portfolio = () => {
                 onMouseEnter={() => setHover(true)}
                 onMouseOut={() => setHover(false)}
                 src={hover ? github_hover : github}
+              ></Img>
+            </a>
+          </h3>
+        </div>
+      </div>
+      <div className="portfolio-piece">
+        <MobContr>
+          <button onClick={() => handleMove("prev")}>
+            <FaAngleLeft />
+          </button>
+          {carItems.map(i => (
+            <LocInd key={i.id} style={{background: i.id === carInd ? "#e04343" : null}} />
+          ))}
+          <button onClick={() => handleMove("next")}>
+            <FaAngleRight/>
+          </button>
+        </MobContr>
+        <Carousel>
+          <DeskContr onClick={() => handleMove("prev")}>
+            <FaAngleLeft />
+          </DeskContr>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={carItems[carInd].url}
+          >
+            <img
+              className="portfolio-img"
+              src={carItems[carInd].img}
+              alt="Nb Enviro Screenshot"
+            ></img>
+          </a>
+          <DeskContr onClick={() => handleMove("next")}>
+            <FaAngleRight/>
+          </DeskContr>
+        </Carousel>
+        <div className="text-box">
+          <h4>Hilton Resorts</h4>
+          <h3>
+            {carItems[carInd].copy}
+            <br />
+            <a
+              target="blank"
+              rel="noopener noreferrer"
+              href="https://github.com/Hammurobbie/"
+            >
+              <Img
+                alt="github link"
+                onMouseEnter={() => setHover4(true)}
+                onMouseOut={() => setHover4(false)}
+                src={hover4 ? github_hover : github}
               ></Img>
             </a>
           </h3>
@@ -116,39 +269,6 @@ const Portfolio = () => {
                 onMouseEnter={() => setHover3(true)}
                 onMouseOut={() => setHover3(false)}
                 src={hover3 ? github_hover : github}
-              ></Img>
-            </a>
-          </h3>
-        </div>
-      </div>
-      <div className="portfolio-piece">
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://pedantic-wilson-c149b0.netlify.app/"
-        >
-          <img
-            className="portfolio-img"
-            src={nbenviro}
-            alt="Nb Enviro Screenshot"
-          ></img>
-        </a>
-        <div className="text-box">
-          <h4>Navy Base Database</h4>
-          <h3>
-            A native desktop application and database created for the Mid-South
-            Navy Base to lookup previous environmental work
-            <br />
-            <a
-              target="blank"
-              rel="noopener noreferrer"
-              href="https://github.com/Hammurobbie/enviro-lookup"
-            >
-              <Img
-                alt="github link"
-                onMouseEnter={() => setHover4(true)}
-                onMouseOut={() => setHover4(false)}
-                src={hover4 ? github_hover : github}
               ></Img>
             </a>
           </h3>
