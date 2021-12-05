@@ -90,19 +90,19 @@ const LocInd = styled.div`
 const carItems = [
   {
     id: 0,
-    copy: "Conrad Abu Dhabi - each component was designed to be functionally and stylistically flexible for a more personailzed experience",
+    copy: "Conrad Abu Dhabi - one of many resort hotel sites I built or worked on components for in a shared monorepo",
     url: "https://www.hilton.com/en/hotels/auhetci-conrad-abu-dhabi-etihad-towers/",
     img: abu
   },
   {
     id: 1,
-    copy: "LXR Mango House - one of many resort hotel sites I built or worked on components for in a shared monorepo",
+    copy: "LXR Mango House - each component was designed to be functionally and stylistically flexible",
     url: "https://www.hilton.com/en/hotels/sezitol-mango-house-seychelles/",
     img: mango
   },
   {
     id: 2,
-    copy: "Hilton Cancun - all components I built or worked on are fully accessible and are used in more than 20 high-end resort sites",
+    copy: "Hilton Cancun - all components are fully accessible and are used in more than 20 high-end resort sites",
     url: "https://hiltoncancun.hilton.com/en",
     img: cancun
   },
