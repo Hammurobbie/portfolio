@@ -84,13 +84,12 @@ const LocInd = styled.div`
   border-radius: 25px;
   height: 3px;
   width: 10px;
-  box-shadow: 0px -3px 20px 0px rgba(135, 139, 123, .5);
 `;
 
 const carItems = [
   {
     id: 0,
-    copy: "Conrad Abu Dhabi - one of many resort hotel sites I built or worked on components for in a shared monorepo",
+    copy: "Conrad Abu Dhabi - one of many resort hotel sites built with dynamic components in a shared monorepo",
     url: "https://www.hilton.com/en/hotels/auhetci-conrad-abu-dhabi-etihad-towers/",
     img: abu
   },
@@ -114,20 +113,29 @@ const Portfolio = () => {
   const [hover3, setHover3] = useState(false);
   const [hover4, setHover4] = useState(false);
   const [carInd, setCarInd] = useState(0);
+  const [anim, setAnim] = useState(null);
 
   const next = useCallback(() => {
+    setAnim("r");
+    setTimeout(() => {
+      setAnim(null);
+    }, 200)
     if(carInd >= carItems.length - 1) {
       setCarInd(0);
     } else {
       setCarInd(carInd + 1);
     }
-  },[carInd])
+  },[carInd, setAnim])
 
   const prev = useCallback(() => {
+    setAnim("l");
+    setTimeout(() => {
+      setAnim(null);
+    }, 200)
     if(carInd > 0) {
       setCarInd(carInd - 1);
     } else setCarInd(carItems.length - 1);
-  },[carInd])
+  },[carInd, setAnim])
 
 const carousel = document.getElementById("carousel");
 
@@ -238,9 +246,9 @@ useEffect(() => {
             href={carItems[carInd].url}
           >
             <img
-              className="portfolio-img"
+              className={`${anim === "l" ? "transLeft" : anim === "r" ? "transRight" : ""} portfolio-img trans`}
               src={carItems[carInd].img}
-              alt="Nb Enviro Screenshot"
+              alt="hilton screenshot"
             ></img>
           </a>
           <DeskContr onClick={next}>
@@ -249,9 +257,10 @@ useEffect(() => {
         </Carousel>
         <div className="text-box">
           <h4>Hilton Resorts</h4>
-          <h3>
+          <h3  className={anim ? "transBlur" : "trans"}>
             {carItems[carInd].copy}
             <br />
+            </h3>
             <a
               target="blank"
               rel="noopener noreferrer"
@@ -264,7 +273,6 @@ useEffect(() => {
                 src={hover4 ? github_hover : github}
               ></Img>
             </a>
-          </h3>
         </div>
       </div>
       <div className="portfolio-piece">
