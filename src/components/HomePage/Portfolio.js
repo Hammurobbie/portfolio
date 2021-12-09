@@ -174,8 +174,13 @@ useEffect(() => {
         xDown = null;
         yDown = null;                                             
       };
+      
+      return () => {
+        carousel.removeEventListener('touchstart', handleTouchStart, false);        
+        carousel.removeEventListener('touchmove', handleTouchMove, false);
+      }
   }
-},[carousel, next, prev])
+},[carousel, next, prev]);
 
   return (
     <div id="portfolio-section" className="portfolio-section">
