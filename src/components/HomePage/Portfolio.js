@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaAngleLeft, FaAngleRight} from 'react-icons/fa';
 
@@ -125,8 +125,14 @@ const Portfolio = () => {
     } else setCarInd(carItems.length - 1)
   };
 
-document.addEventListener('touchstart', handleTouchStart, false);        
-document.addEventListener('touchmove', handleTouchMove, false);
+const carousel = document.getElementById("carousel");
+console.log(carousel)
+useEffect(() => {
+  if(carousel) {
+    carousel.addEventListener('touchstart', handleTouchStart, false);        
+    carousel.addEventListener('touchmove', handleTouchMove, false);
+  }
+},[carousel])
 
 var xDown = null;                                                        
 var yDown = null;
@@ -201,7 +207,7 @@ function handleTouchMove(evt) {
           </h3>
         </div>
       </div>
-      <div className="portfolio-piece">
+      <div id="carousel" className="portfolio-piece">
         <MobContr>
           <button onClick={() => handleMove("prev")}>
             <FaAngleLeft />
