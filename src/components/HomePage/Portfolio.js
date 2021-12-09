@@ -164,17 +164,17 @@ useEffect(() => {
         if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
             if ( xDiff > 0 ) {
                 /* right swipe */ 
-                prev();
+                next();
             } else {
                 /* left swipe */
-                next();
+                prev();
             }                       
         }
         /* reset values */
         xDown = null;
         yDown = null;                                             
       };
-      
+
       return () => {
         carousel.removeEventListener('touchstart', handleTouchStart, false);        
         carousel.removeEventListener('touchmove', handleTouchMove, false);
