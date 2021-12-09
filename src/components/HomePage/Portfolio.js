@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaAngleLeft, FaAngleRight} from 'react-icons/fa';
 
@@ -115,63 +115,67 @@ const Portfolio = () => {
   const [hover4, setHover4] = useState(false);
   const [carInd, setCarInd] = useState(0);
 
-  const handleMove = (dir) => {
-    if(dir === "next" && carInd >= carItems.length - 1) {
+  const next = useCallback(() => {
+    if(carInd >= carItems.length - 1) {
       setCarInd(0);
-    } else if(dir === "next") {
+    } else {
       setCarInd(carInd + 1);
-    } else if(dir === "prev" && carInd > 0) {
+    }
+  },[carInd])
+
+  const prev = useCallback(() => {
+    if(carInd > 0) {
       setCarInd(carInd - 1);
-    } else setCarInd(carItems.length - 1)
-  };
+    } else setCarInd(carItems.length - 1);
+  },[carInd])
 
 const carousel = document.getElementById("carousel");
-console.log(carousel)
+
 useEffect(() => {
   if(carousel) {
     carousel.addEventListener('touchstart', handleTouchStart, false);        
     carousel.addEventListener('touchmove', handleTouchMove, false);
+
+    var xDown = null;                                                        
+    var yDown = null;
+
+    function getTouches(evt) {
+      return evt.touches ||             // browser API
+            evt.originalEvent.touches; // jQuery
+    }                                                     
+                                                                            
+    function handleTouchStart(evt) {
+        const firstTouch = getTouches(evt)[0];                                      
+        xDown = firstTouch.clientX;                                      
+        yDown = firstTouch.clientY;                                      
+    };                                                
+                                                                            
+    function handleTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+                                                                            
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /* right swipe */ 
+                prev();
+            } else {
+                /* left swipe */
+                next();
+            }                       
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+      };
   }
-},[carousel])
-
-var xDown = null;                                                        
-var yDown = null;
-
-function getTouches(evt) {
-  return evt.touches ||             // browser API
-         evt.originalEvent.touches; // jQuery
-}                                                     
-                                                                         
-function handleTouchStart(evt) {
-    const firstTouch = getTouches(evt)[0];                                      
-    xDown = firstTouch.clientX;                                      
-    yDown = firstTouch.clientY;                                      
-};                                                
-                                                                         
-function handleTouchMove(evt) {
-    if ( ! xDown || ! yDown ) {
-        return;
-    }
-
-    var xUp = evt.touches[0].clientX;                                    
-    var yUp = evt.touches[0].clientY;
-
-    var xDiff = xDown - xUp;
-    var yDiff = yDown - yUp;
-                                                                         
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-        if ( xDiff > 0 ) {
-            /* right swipe */ 
-            handleMove("prev");
-        } else {
-            /* left swipe */
-            handleMove("next");
-        }                       
-    }
-    /* reset values */
-    xDown = null;
-    yDown = null;                                             
-};
+},[carousel, next, prev])
 
   return (
     <div id="portfolio-section" className="portfolio-section">
@@ -209,18 +213,18 @@ function handleTouchMove(evt) {
       </div>
       <div id="carousel" className="portfolio-piece">
         <MobContr>
-          <button onClick={() => handleMove("prev")}>
+          <button onClick={prev}>
             <FaAngleLeft />
           </button>
           {carItems.map(i => (
             <LocInd key={i.id} style={{background: i.id === carInd ? "#e04343" : null}} />
           ))}
-          <button onClick={() => handleMove("next")}>
+          <button onClick={next}>
             <FaAngleRight/>
           </button>
         </MobContr>
         <Carousel>
-          <DeskContr onClick={() => handleMove("prev")}>
+          <DeskContr onClick={prev}>
             <FaAngleLeft />
           </DeskContr>
           <a
@@ -234,7 +238,7 @@ function handleTouchMove(evt) {
               alt="Nb Enviro Screenshot"
             ></img>
           </a>
-          <DeskContr onClick={() => handleMove("next")}>
+          <DeskContr onClick={next}>
             <FaAngleRight/>
           </DeskContr>
         </Carousel>
