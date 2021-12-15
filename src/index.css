@@ -158,7 +158,7 @@ a:hover {
 
 .trans {
   transition: .3s ease-in-out;
-  filter: blur(0px);
+  filter: grayscale(100%) blur(0px);
 }
 
 .transBlur {
@@ -168,13 +168,13 @@ a:hover {
 
 .transRight {
   transition: .3s ease-in-out;
-  filter: blur(3px);
+  filter: grayscale(100%) blur(3px);
   /* transform: translate(5px, 0px); */
 }
 
 .transLeft {
   transition: .3s ease-in-out;
-  filter: blur(3px);
+  filter: grayscale(100%) blur(3px);
   /* transform: translate(-5px, 0px); */
 }
 
