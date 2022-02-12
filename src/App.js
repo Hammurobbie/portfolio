@@ -1,4 +1,5 @@
 import React from "react";
+import smoothscroll from 'smoothscroll-polyfill';
 
 // Set up all routes in App
 import { Route } from "react-router-dom";
@@ -8,6 +9,8 @@ import { AppWrapper } from "./components/Global/styled";
 
 // Importing all routes
 import HomePage from "./components/HomePage";
+
+smoothscroll.polyfill();
 
 const App = () => {
   return (
