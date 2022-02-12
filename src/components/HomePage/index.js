@@ -61,6 +61,8 @@ const observer = new MutationObserver(function(mutations_list) {
 	});
 });
 
+const port = document.getElementById("portfolio-section");
+
 observer.observe(document.querySelector("#body"), { subtree: false, childList: true });
 
   return (
@@ -80,15 +82,15 @@ observer.observe(document.querySelector("#body"), { subtree: false, childList: t
               className="logo" 
             />
             <p>a full-stack web developer</p>
-            <a
-              href="#portfolio-section"
+            <div
+              onClick={()=> port.scrollIntoView({ behavior: 'smooth' })}
               className="scrollto wow fadeInUp delay-5s"
             >
               <p className="scrollto-text">Portfolio</p>
               <p className="scrollto--arrow">
                 <img src={scrollDown} alt="scroll down arrow" />
               </p>
-            </a>
+            </div>
           </div>
         </div>
       </header>

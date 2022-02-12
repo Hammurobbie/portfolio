@@ -183,12 +183,13 @@ a:hover {
 }
 
 .scrollto {
-  padding: 15vh 0px 0px 0px;
+  padding: 0 0px 0px 0px;
   display: block;
   color: #4e4b4b;
   width: 200px;
-  margin: 0 auto;
+  margin: 15vh auto 0 auto;
   border-bottom: none;
+  cursor: pointer;
 }
 
 .scrollto-text {
