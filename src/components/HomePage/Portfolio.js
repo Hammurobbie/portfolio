@@ -25,7 +25,9 @@ const Carousel = styled.div`
     background: none;
     border: none;
     transition: all 0.2s ease-in-out;
-    height: 50px svg {
+    height: 50px;
+
+    svg {
       height: 100%;
       color: #e7e9d1;
       transition: all 0.2s ease-in-out;
@@ -58,6 +60,7 @@ const MobContr = styled.div`
     border: none;
     transition: all 0.2s ease-in-out;
     height: 50px;
+
     svg {
       height: 100%;
       color: #e7e9d1;
