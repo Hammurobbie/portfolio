@@ -4,7 +4,7 @@ import portfolio from "../../img/portfolio.png";
 import linkedin from "../../img/linkedin.png";
 import github from "../../img/github.png";
 import mail from "../../img/mail.png";
-import me from "../../img/me.png";
+import me from "../../img/me.jpeg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Collapse, Navbar, Nav, NavItem, NavLink } from "reactstrap";
 
@@ -25,9 +25,9 @@ const Img = styled.img`
   max-height: 180px;
   max-width: 180px;
   margin-bottom: 20px;
-  box-shadow: 0px 0px 20px 0px rgba(135, 139, 123, .5);
+  box-shadow: 0px 0px 20px 0px rgba(135, 139, 123, 0.5);
   @media (max-width: 500px) {
-    box-shadow: 0px 0px 20px 0px rgba(135, 139, 123, .25);
+    box-shadow: 0px 0px 20px 0px rgba(135, 139, 123, 0.25);
     border: #e7e9d1 1px dotted;
     height: 35%;
     width: 35%;
@@ -52,13 +52,14 @@ const About = ({ collapsed2, setCollapsed2 }) => {
   return (
     <div>
       <Navbar color="faded" light>
-        <Collapse isOpen={!collapsed2} navbar >
+        <Collapse isOpen={!collapsed2} navbar>
           <Nav navbar>
             <NavItem>
               <Img alt="me" src={me} />
               <p>
                 <span style={{ color: "#e04343" }}>I am a:</span> <br />
-                Full-stack web developer based in Memphis, TN - all about a technical solution to a real-world problem.
+                Full-stack web developer based in Memphis, TN - all about a
+                technical solution to a real-world problem.
                 <br />
                 <br />
                 <span style={{ color: "#e04343" }}>
@@ -80,7 +81,11 @@ const About = ({ collapsed2, setCollapsed2 }) => {
             </NavItem>
             <NavItem>
               <p style={{ color: "#e04343" }}>Check out my:</p>
-              <NavLink onClick={()=>setCollapsed2(true)} href="#portfolio-section" className="navEase">
+              <NavLink
+                onClick={() => setCollapsed2(true)}
+                href="#portfolio-section"
+                className="navEase"
+              >
                 <Div>
                   <Icon src={portfolio} alt="portfolio icon" />
                   <h5>Portfolio</h5>
