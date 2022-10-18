@@ -4,7 +4,7 @@ import portfolio from "../../img/portfolio.png";
 import linkedin from "../../img/linkedin.png";
 import github from "../../img/github.png";
 import mail from "../../img/mail.png";
-import me from "../../img/me.jpeg";
+import me from "../../img/me.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Collapse, Navbar, Nav, NavItem, NavLink } from "reactstrap";
 
