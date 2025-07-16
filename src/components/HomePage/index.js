@@ -50,23 +50,26 @@ const HomePage = () => {
 
   const toggleNavbar2 = () => setCollapsed2(!collapsed2);
 
-const observer = new MutationObserver(function(mutations_list) {
-	mutations_list.forEach(function(mutation) {
-		mutation.removedNodes.forEach(function(removed_node) {
-			if(removed_node.id === 'loading') {
-        setLoader(false);
-				observer.disconnect();
-			}
-		});
-	});
-});
+  const observer = new MutationObserver(function (mutations_list) {
+    mutations_list.forEach(function (mutation) {
+      mutation.removedNodes.forEach(function (removed_node) {
+        if (removed_node.id === "loading") {
+          setLoader(false);
+          observer.disconnect();
+        }
+      });
+    });
+  });
 
-const port = document.getElementById("portfolio-section");
+  const port = document.getElementById("portfolio-section");
 
-observer.observe(document.querySelector("#body"), { subtree: false, childList: true });
+  observer.observe(document.querySelector("#body"), {
+    subtree: false,
+    childList: true,
+  });
 
   return (
-    <div className={loader ? "loading-body"  : ""}>
+    <div className={loader ? "loading-body" : ""}>
       <header id="home">
         <div className="nav-box-cont">
           <NavbarToggler onClick={toggleNavbar2}>
@@ -76,14 +79,10 @@ observer.observe(document.querySelector("#body"), { subtree: false, childList: t
         <About collapsed2={collapsed2} setCollapsed2={setCollapsed2} />
         <div className="row">
           <div className={collapsed2 ? "" : "scroll-hidden"}>
-            <img 
-              src={logo} 
-              alt="logo" 
-              className="logo" 
-            />
-            <p>a full-stack web developer</p>
+            <img src={logo} alt="logo" className="logo" />
+            <p>software engineer</p>
             <div
-              onClick={()=> port.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => port.scrollIntoView({ behavior: "smooth" })}
               className="scrollto wow fadeInUp delay-5s"
             >
               <p className="scrollto-text">Portfolio</p>

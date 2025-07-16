@@ -20,17 +20,18 @@ const Img = styled.img`
   object-fit: cover;
   border-radius: 50%;
   border: #e7e9d1 2px dotted;
-  height: 20%;
-  width: 20%;
+  height: 180px;
+  width: 180px;
   max-height: 180px;
   max-width: 180px;
   margin-bottom: 20px;
   box-shadow: 0px 0px 20px 0px rgba(135, 139, 123, 0.5);
+
   @media (max-width: 500px) {
+    height: 140px;
+    width: 140px;
     box-shadow: 0px 0px 20px 0px rgba(135, 139, 123, 0.25);
     border: #e7e9d1 1px dotted;
-    height: 35%;
-    width: 35%;
   }
 `;
 
@@ -58,22 +59,22 @@ const About = ({ collapsed2, setCollapsed2 }) => {
               <Img alt="me" src={me} />
               <p>
                 <span style={{ color: "#e04343" }}>I am a:</span> <br />
-                Full-stack web developer based in Memphis, TN - all about a
-                technical solution to a real-world problem.
+                Software Engineer based in Boston, MA - all about a technical
+                solution to a real-world problem.
                 <br />
                 <br />
                 <span style={{ color: "#e04343" }}>
                   My skills include:
                 </span>{" "}
                 <br />
-                Javascript <span style={{ color: "#e04343" }}>|</span> HTML{" "}
+                Typescript <span style={{ color: "#e04343" }}>|</span> HTML{" "}
                 <span style={{ color: "#e04343" }}>|</span> Python{" "}
-                <span style={{ color: "#e04343" }}>|</span> CSS{" "}
+                <span style={{ color: "#e04343" }}>|</span> CSS/Tailwind{" "}
                 <span style={{ color: "#e04343" }}>|</span> React{" "}
-                <span style={{ color: "#e04343" }}>|</span> Redux{" "}
+                <span style={{ color: "#e04343" }}>|</span> Next{" "}
                 <span style={{ color: "#e04343" }}>|</span> RESTful APIs{" "}
                 <span style={{ color: "#e04343" }}>|</span> GraphQL{" "}
-                <span style={{ color: "#e04343" }}>|</span> Node.js{" "}
+                <span style={{ color: "#e04343" }}>|</span> Node{" "}
                 <span style={{ color: "#e04343" }}>|</span> Express{" "}
                 <span style={{ color: "#e04343" }}>|</span> PostgreSQL
               </p>
