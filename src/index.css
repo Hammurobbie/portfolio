@@ -14,25 +14,6 @@ body {
   background: url("./img/grain.gif");
 }
 
-#loading {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  display: block;
-  overflow: visible;
-  background-color: #1f1f1f;
-  background: url("./img/grain.gif"), url("./img/loading_gif_bg.gif");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.loading-body {
-  display: none;
-}
-
 h1,
 h6 {
   font-family: "Raleway", sans-serif;
@@ -133,7 +114,7 @@ a:hover {
 
 .portfolio-img {
   width: 80%;
-  box-shadow: 0px -3px 20px 0px rgba(135, 139, 123, .5);
+  box-shadow: 0px -3px 20px 0px rgba(135, 139, 123, 0.5);
   border-radius: 5px 5px 0 0;
   opacity: 0.9;
   filter: grayscale(100%) sepia(30%) blur(0.5px);
@@ -157,29 +138,31 @@ a:hover {
 }
 
 .trans {
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
   filter: grayscale(100%) blur(0px);
 }
 
 .transBlur {
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
   filter: blur(3px);
 }
 
 .transRight {
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
   filter: grayscale(100%) blur(3px);
   /* transform: translate(5px, 0px); */
 }
 
 .transLeft {
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
   filter: grayscale(100%) blur(3px);
   /* transform: translate(-5px, 0px); */
 }
 
 .scroll-hidden {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease-in-out;
 }
 
 .scrollto {
@@ -316,7 +299,6 @@ a:hover {
 /* mobile */
 
 @media (max-width: 500px) {
-
   .logo {
     width: 100%;
     margin-bottom: 15%;
@@ -376,18 +358,18 @@ a:hover {
 
   .portfolio-img {
     filter: grayscale(100%) sepia(30%) blur(0);
-    box-shadow: 0px -3px 20px 0px rgba(135, 139, 123, .35);
+    box-shadow: 0px -3px 20px 0px rgba(135, 139, 123, 0.35);
     width: 100%;
   }
 
   .transRight {
-    transition: .3s ease-in-out;
+    transition: 0.3s ease-in-out;
     filter: grayscale(100%) blur(1px);
     /* transform: translate(5px, 0px); */
   }
-  
+
   .transLeft {
-    transition: .3s ease-in-out;
+    transition: 0.3s ease-in-out;
     filter: grayscale(100%) blur(1px);
     /* transform: translate(-5px, 0px); */
   }

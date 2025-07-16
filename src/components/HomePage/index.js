@@ -14,21 +14,26 @@ const NavbarToggler = styled.button`
   border: solid 1px rgba(250, 235, 215,.1);
   box-shadow: 0px 0px 4px rgba(250, 235, 215,.25);
   border-radius: 25px;
-  padding: 5px 10px 0 10px;
+  padding: 5px 10px;
   min-width: 150px;
   cursor: pointer;
-  transition: 0.2s ease-in-out;
-  h2 {
-    transition: 0.2s ease-in-out;
+  transition: fadeIn 0.5s ease forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
+    font-size: 20px;
+    transition: fadeIn 0.5s ease forwards;
   }
   &:hover {
+    color: rgba(250, 235, 215,.5);
     box-shadow: 0px 0px 4px rgba(250, 235, 215,.5);
-    transition: 0.2s ease-in-out;
+    transition: fadeIn 0.5s ease forwards;
   }
   @media (max-width: 980px) {
     padding: 6px 10px 5px 10px;
     min-width: 100px;
-    h2 {
+    span {
       padding: 0;
       margin: 0;
     }
@@ -36,7 +41,7 @@ const NavbarToggler = styled.button`
     box-shadow: 0px 0px 4px rgba(250, 235, 215,.1);
     padding: 5px 10px 5px 10px;
     min-width: 100px;
-    h2 {
+    span {
       padding: 0;
       margin: 0;
       font-size: 1.7rem;
@@ -44,36 +49,28 @@ const NavbarToggler = styled.button`
   }
 `;
 
+const FadeWrapper = styled.div`
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+`;
+
 const HomePage = () => {
   const [collapsed2, setCollapsed2] = useState(true);
-  const [loader, setLoader] = useState(true);
-
   const toggleNavbar2 = () => setCollapsed2(!collapsed2);
-
-  const observer = new MutationObserver(function (mutations_list) {
-    mutations_list.forEach(function (mutation) {
-      mutation.removedNodes.forEach(function (removed_node) {
-        if (removed_node.id === "loading") {
-          setLoader(false);
-          observer.disconnect();
-        }
-      });
-    });
-  });
-
   const port = document.getElementById("portfolio-section");
 
-  observer.observe(document.querySelector("#body"), {
-    subtree: false,
-    childList: true,
-  });
-
   return (
-    <div className={loader ? "loading-body" : ""}>
+    <FadeWrapper>
       <header id="home">
         <div className="nav-box-cont">
           <NavbarToggler onClick={toggleNavbar2}>
-            {collapsed2 ? <h2>Robbie who?</h2> : <h2>Ah okay!</h2>}
+            {collapsed2 ? <span>Robbie who?</span> : <span>Ah okay!</span>}
           </NavbarToggler>
         </div>
         <About collapsed2={collapsed2} setCollapsed2={setCollapsed2} />
@@ -95,7 +92,7 @@ const HomePage = () => {
       </header>
       <Portfolio />
       <Footer />
-    </div>
+    </FadeWrapper>
   );
 };
 
