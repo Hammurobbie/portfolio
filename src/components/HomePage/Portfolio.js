@@ -7,9 +7,9 @@ import bhm from "../../img/bhm.png";
 import hue from "../../img/hue.png";
 import github from "../../img/github.png";
 import github_hover from "../../img/github_hover.png";
-import mango from "../../img/mango.png";
-import abu from "../../img/abu.png";
-import cancun from "../../img/cancun.png";
+import trianon from "../../img/trianon.png";
+import cala from "../../img/cala.png";
+import zemi from "../../img/zemi.png";
 
 const Img = styled.img`
   width: 20px;
@@ -89,21 +89,21 @@ const LocInd = styled.div`
 const carItems = [
   {
     id: 0,
-    copy: "Conrad Abu Dhabi - one of many resort hotel sites built with dynamic components in a shared monorepo",
-    url: "https://www.hilton.com/en/hotels/auhetci-conrad-abu-dhabi-etihad-towers/",
-    img: abu,
+    copy: "Cala San Miguel Ibiza - one of many resort hotel sites built with dynamic components in a shared monorepo",
+    url: "https://www.hilton.com/en/hotels/ibzseqq-cala-san-miguel-ibiza-resort/",
+    img: cala,
   },
   {
     id: 1,
-    copy: "LXR Mango House - each component was designed to be functionally and stylistically flexible",
-    url: "https://www.hilton.com/en/hotels/sezitol-mango-house-seychelles/",
-    img: mango,
+    copy: "Waldorf Astoria Versailles, Trianon Palace - each component was designed to be functionally and stylistically flexible",
+    url: "https://www.hilton.com/en/hotels/cdgtpwa-waldorf-astoria-versailles-trianon-palace/",
+    img: trianon,
   },
   {
     id: 2,
-    copy: "Hilton Cancun - all components are fully accessible and are used in more than 50 high-end resort sites",
-    url: "https://www.hilton.com/en/hotels/cunqrhh-hilton-cancun/",
-    img: cancun,
+    copy: "Zemi Beach House - all components are fully accessible and are used in more than 200 high-end resort sites",
+    url: "https://www.hilton.com/en/hotels/axazbol-zemi-beach-house/",
+    img: zemi,
   },
 ];
 
@@ -207,7 +207,8 @@ const Portfolio = () => {
           <h4>BH&M Dashboard</h4>
           <h3>
             Internal business tool for the company that provides all
-            environmental services to Memphis Light, Gas & Water.
+            environmental services to the largest full-service utility company
+            in the US.
             <br />
             <a
               target="blank"

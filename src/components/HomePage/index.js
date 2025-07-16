@@ -79,7 +79,7 @@ const HomePage = () => {
             <img src={logo} alt="logo" className="logo" />
             <p>software engineer</p>
             <div
-              onClick={() => port.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => port?.scrollIntoView({ behavior: "smooth" })}
               className="scrollto wow fadeInUp delay-5s"
             >
               <p className="scrollto-text">Portfolio</p>
