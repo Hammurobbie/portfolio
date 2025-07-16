@@ -102,7 +102,7 @@ const carItems = [
   {
     id: 2,
     copy: "Hilton Cancun - all components are fully accessible and are used in more than 50 high-end resort sites",
-    url: "https://hiltoncancun.hilton.com/en",
+    url: "https://www.hilton.com/en/hotels/cunqrhh-hilton-cancun/",
     img: cancun,
   },
 ];
