@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 
 import scrollDown from "../../img/scrollDown.png";
@@ -63,7 +63,7 @@ const FadeWrapper = styled.div`
 const HomePage = () => {
   const [collapsed2, setCollapsed2] = useState(true);
   const toggleNavbar2 = () => setCollapsed2(!collapsed2);
-  const port = document.getElementById("portfolio-section");
+  const portRef = useRef(null);
 
   return (
     <FadeWrapper>
@@ -79,7 +79,9 @@ const HomePage = () => {
             <img src={logo} alt="logo" className="logo" />
             <p>software engineer</p>
             <div
-              onClick={() => port?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                portRef?.current?.scrollIntoView({ behavior: "smooth" })
+              }
               className="scrollto wow fadeInUp delay-5s"
             >
               <p className="scrollto-text">Portfolio</p>
@@ -90,7 +92,7 @@ const HomePage = () => {
           </div>
         </div>
       </header>
-      <Portfolio />
+      <Portfolio portRef={portRef} />
       <Footer />
     </FadeWrapper>
   );

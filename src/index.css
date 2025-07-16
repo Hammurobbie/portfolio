@@ -5,7 +5,6 @@
 
 html {
   font-size: 62.5%;
-  font-family: "Raleway", sans-serif;
   background-color: #1f1f1f;
   scroll-behavior: smooth;
 }
@@ -14,13 +13,11 @@ body {
   background: url("./img/grain.gif");
 }
 
-h1,
-h6 {
-  font-family: "Raleway", sans-serif;
+* {
+  font-family: "Work Sans", sans-serif;
 }
 
 h2 {
-  font-family: "Raleway", sans-serif;
   color: #e04343;
 }
 
@@ -30,14 +27,12 @@ h2:hover {
 }
 
 h3 {
-  font-family: "Work Sans", sans-serif;
   color: #e7e9d1;
   font-style: initial;
   font-size: 1.75rem;
 }
 
 h4 {
-  font-family: "Raleway", sans-serif;
   color: #e04343;
   padding: 10px 0 0 0;
   font-size: 2rem;
@@ -45,7 +40,6 @@ h4 {
 
 h5 {
   color: #e7e9d1;
-  font-family: "Work Sans", sans-serif;
   font-style: initial;
   font-size: 2.2rem;
   padding: 0 5px 0 5px;
@@ -58,7 +52,6 @@ h5:hover {
 
 p {
   color: #e7e9d1;
-  font-family: "Work Sans", sans-serif;
   font-style: initial;
   font-size: 2.2rem;
 }

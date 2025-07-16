@@ -107,7 +107,7 @@ const carItems = [
   },
 ];
 
-const Portfolio = () => {
+const Portfolio = ({ portRef }) => {
   const [hover, setHover] = useState(false);
   const [hover2, setHover2] = useState(false);
   const [hover3, setHover3] = useState(false);
@@ -194,7 +194,7 @@ const Portfolio = () => {
   }, [carousel, next, prev]);
 
   return (
-    <div id="portfolio-section" className="portfolio-section">
+    <div ref={portRef} className="portfolio-section">
       <div className="portfolio-piece">
         <a
           target="_blank"
